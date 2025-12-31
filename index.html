@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutricionista | Leeanne Gonçalves</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+
+        :root {
+            --brand-gold: #C5A059;
+            --brand-beige: #F9F7F2;
+            --brand-dark: #2C2C2C;
+            --brand-leaf: #5B6D5B; /* Um verde musgo sutil para nutrição */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--brand-beige);
+            color: var(--brand-dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, #C5A059 0%, #E2C28D 100%);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--brand-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+
+        /* Estilo para simular o modelo da imagem: Imagem com moldura orgânica */
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .hero-image-container::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--brand-gold);
+            border-radius: 150px 150px 0 0;
+            z-index: 1;
+        }
+
+        .hero-image {
+            border-radius: 150px 150px 0 0;
+            position: relative;
+            z-index: 2;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 transition-all duration-300 glass-effect border-b border-gray-100">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-serif font-bold tracking-widest text-gray-800 uppercase">
+                Leeanne<span class="text-[#C5A059]">Gonçalves</span>
+            </div>
+            
+            <button id="menu-btn" class="md:hidden text-gray-800 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+
+            <ul class="hidden md:flex space-x-10 font-medium uppercase text-[10px] tracking-[0.2em]">
+                <li><a href="#inicio" class="nav-link">Início</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre Mim</a></li>
+                <li><a href="#consultas" class="nav-link">Consultas</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full absolute top-full left-0 border-b border-gray-200 shadow-xl">
+            <ul class="flex flex-col p-8 space-y-6 font-medium uppercase text-xs tracking-widest text-center">
+                <li><a href="#inicio" class="block py-2">Início</a></li>
+                <li><a href="#sobre" class="block py-2">Sobre Mim</a></li>
+                <li><a href="#consultas" class="block py-2">Consultas</a></li>
+                <li><a href="#contato" class="block py-2">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section (Inspirado fielmente no modelo enviado) -->
+        <section id="inicio" class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Lado Esquerdo: Texto (No modelo, a imagem e o texto dividem bem o espaço) -->
+                <div class="space-y-8 z-10 order-2 md:order-1">
+                    <div class="space-y-2">
+                        <span class="text-[#C5A059] uppercase tracking-[0.5em] text-[10px] font-bold block mb-4">Saúde & Bem-estar</span>
+                        <h1 class="text-5xl md:text-7xl leading-[1.1] text-gray-900 font-serif">
+                            Alimente sua <br>
+                            <span class="italic font-normal text-gray-500">melhor versão.</span>
+                        </h1>
+                    </div>
+                    <p class="text-gray-600 max-w-md leading-relaxed text-lg font-light">
+                        Transforme sua relação com a comida através de uma nutrição consciente, personalizada e sem restrições severas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="#consultas" class="gold-gradient text-white px-10 py-5 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 uppercase tracking-widest text-[10px] font-bold text-center">
+                            Agendar minha consulta
+                        </a>
+                        <a href="#sobre" class="border border-gray-300 text-gray-700 px-10 py-5 rounded-full hover:bg-white transition-all uppercase tracking-widest text-[10px] font-bold text-center">
+                            Conhecer abordagem
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Lado Direito: Imagem com moldura orgânica (Inspirado no modelo) -->
+                <div class="order-1 md:order-2 flex justify-center md:justify-end">
+                    <div class="hero-image-container">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Nutricionista Profissional" class="hero-image w-full object-cover aspect-[3/4]">
+                        <!-- Elemento decorativo flutuante -->
+                        <div class="absolute -bottom-10 -right-10 bg-white p-6 rounded-2xl shadow-2xl z-20 hidden lg:block border border-gray-50">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-apple-alt text-[#C5A059]"></i>
+                                </div>
+                                <div>
+                                    <p class="text-[10px] text-gray-400 uppercase tracking-widest">Especialidade</p>
+                                    <p class="text-sm font-bold text-gray-800 font-serif">Emagrecimento</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Background Shape -->
+            <div class="absolute top-0 right-0 -mr-32 -mt-32 w-[600px] h-[600px] bg-white rounded-full opacity-50 -z-10"></div>
+        </section>
+
+        <!-- Seção de Especialidade (Novo e Criativo para Nutricionista) -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center space-y-2 reveal">
+                        <i class="fas fa-leaf text-[#C5A059] text-2xl mb-2"></i>
+                        <h4 class="font-serif text-lg">Natural</h4>
+                        <p class="text-xs text-gray-400">Foco em alimentos reais</p>
+                    </div>
+                    <div class="text-center space-y-2 reveal">
+                        <i class="fas fa-heartbeat text-[#C5A059] text-2xl mb-2"></i>
+                        <h4 class="font-serif text-lg">Vitalidade</h4>
+                        <p class="text-xs text-gray-400">Energia para o dia a dia</p>
+                    </div>
+                    <div class="text-center space-y-2 reveal">
+                        <i class="fas fa-brain text-[#C5A059] text-2xl mb-2"></i>
+                        <h4 class="font-serif text-lg">Consciência</h4>
+                        <p class="text-xs text-gray-400">Comer com atenção plena</p>
+                    </div>
+                    <div class="text-center space-y-2 reveal">
+                        <i class="fas fa-balance-scale text-[#C5A059] text-2xl mb-2"></i>
+                        <h4 class="font-serif text-lg">Equilíbrio</h4>
+                        <p class="text-xs text-gray-400">Sem dietas milagrosas</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Mim -->
+        <section id="sobre" class="py-24 bg-[#F9F7F2]">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2 relative">
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=800" alt="Alimentação Saudável" class="rounded-[2rem] shadow-2xl">
+                    <div class="absolute -top-6 -left-6 bg-[#C5A059] w-24 h-24 rounded-full flex items-center justify-center text-white text-xs text-center font-bold p-2 transform -rotate-12 border-4 border-white">
+                        CRN ATIVO
+                    </div>
+                </div>
+                <div class="md:w-1/2 space-y-8">
+                    <div class="space-y-4">
+                        <h2 class="text-4xl md:text-5xl text-gray-900 font-serif leading-tight">Ciência e acolhimento em cada etapa.</h2>
+                        <div class="w-16 h-[2px] bg-[#C5A059]"></div>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed">
+                        Sou apaixonada por desmistificar a nutrição. Meu trabalho consiste em entender a sua rotina, seus gostos e seus desafios para criar um plano que realmente faça sentido para a sua vida.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-graduation-cap text-[#C5A059] mt-1"></i>
+                            <div>
+                                <h5 class="font-bold text-sm">Formação Acadêmica</h5>
+                                <p class="text-xs text-gray-500">Graduação e Pós-graduação em Nutrição Clínica.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-award text-[#C5A059] mt-1"></i>
+                            <div>
+                                <h5 class="font-bold text-sm">Especialização</h5>
+                                <p class="text-xs text-gray-500">Foco em Nutrição Comportamental e Emagrecimento.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consultas -->
+        <section id="consultas" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-2xl mx-auto mb-20 space-y-4">
+                    <h2 class="text-4xl font-serif">Como funcionam as consultas</h2>
+                    <p class="text-gray-500 font-light">Atendimento personalizado focado nos seus objetivos de saúde.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                    <!-- Presencial -->
+                    <div class="group bg-[#F9F7F2] p-10 rounded-[3rem] transition-all duration-500 hover:bg-white hover:shadow-2xl hover:scale-[1.02] border border-transparent hover:border-gray-100">
+                        <div class="mb-8 flex justify-between items-start">
+                            <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm group-hover:bg-[#C5A059] transition-colors">
+                                <i class="fas fa-stethoscope text-[#C5A059] text-2xl group-hover:text-white"></i>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Presencial</span>
+                        </div>
+                        <h3 class="text-2xl font-serif mb-4">Consulta Presencial</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed mb-8">Avaliação física completa com bioimpedância, análise de exames e conversa detalhada em nosso consultório.</p>
+                        <ul class="space-y-4 text-sm text-gray-600 mb-10">
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-[#C5A059]"></i> Bioimpedância inclusa</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-[#C5A059]"></i> Plano alimentar entregue na hora</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-[#C5A059]"></i> Suporte via app</li>
+                        </ul>
+                        <a href="#contato" class="block text-center border-b-2 border-[#C5A059] pb-2 text-[10px] font-bold uppercase tracking-widest hover:text-[#C5A059] transition-colors">Saber mais detalhes</a>
+                    </div>
+
+                    <!-- Online -->
+                    <div class="group bg-gray-900 p-10 rounded-[3rem] text-white transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]">
+                        <div class="mb-8 flex justify-between items-start">
+                            <div class="w-16 h-16 bg-gray-800 rounded-2xl flex items-center justify-center shadow-sm group-hover:bg-[#C5A059] transition-colors">
+                                <i class="fas fa-laptop-medical text-[#C5A059] text-2xl group-hover:text-white"></i>
+                            </div>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Online</span>
+                        </div>
+                        <h3 class="text-2xl font-serif mb-4">Consulta Online</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-8">O mesmo cuidado do presencial, no conforto da sua casa. Ideal para quem tem rotina agitada ou mora em outras cidades.</p>
+                        <ul class="space-y-4 text-sm text-gray-400 mb-10">
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-[#C5A059]"></i> Vídeo chamada HD</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-[#C5A059]"></i> Protocolo de fotos/medidas</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-[#C5A059]"></i> Atendimento para todo Brasil</li>
+                        </ul>
+                        <a href="#contato" class="block text-center border-b-2 border-[#C5A059] pb-2 text-[10px] font-bold uppercase tracking-widest text-white hover:text-[#C5A059] transition-colors">Agendar por vídeo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato -->
+        <section id="contato" class="py-24 bg-[#F9F7F2]">
+            <div class="container mx-auto px-6">
+                <div class="bg-white rounded-[4rem] shadow-xl overflow-hidden flex flex-col lg:flex-row">
+                    <!-- Informações -->
+                    <div class="lg:w-2/5 gold-gradient p-12 text-white flex flex-col justify-between">
+                        <div>
+                            <h2 class="text-4xl font-serif mb-6">Dê o primeiro passo hoje.</h2>
+                            <p class="text-white/80 font-light mb-12">Agende sua avaliação e comece sua jornada para uma vida mais leve.</p>
+                            
+                            <div class="space-y-8">
+                                <div class="flex items-center gap-6">
+                                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                                        <i class="fab fa-whatsapp text-xl"></i>
+                                    </div>
+                                    <p class="font-medium">(11) 99999-9999</p>
+                                </div>
+                                <div class="flex items-center gap-6">
+                                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-xl"></i>
+                                    </div>
+                                    <p class="font-medium">Vila Madalena, São Paulo - SP</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="pt-12">
+                            <p class="text-[10px] uppercase tracking-[0.3em] font-bold mb-4">Siga nas redes</p>
+                            <div class="flex gap-4">
+                                <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-[#C5A059] transition-all"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-[#C5A059] transition-all"><i class="fab fa-facebook-f"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulário -->
+                    <div class="lg:w-3/5 p-12">
+                        <form id="contactForm" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div class="space-y-1">
+                                <label class="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Nome Completo</label>
+                                <input type="text" class="w-full border-b border-gray-200 py-3 focus:outline-none focus:border-[#C5A059] transition-all bg-transparent">
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-[10px] uppercase font-bold text-gray-400 tracking-widest">E-mail</label>
+                                <input type="email" class="w-full border-b border-gray-200 py-3 focus:outline-none focus:border-[#C5A059] transition-all bg-transparent">
+                            </div>
+                            <div class="space-y-1 sm:col-span-2">
+                                <label class="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Qual seu principal objetivo?</label>
+                                <select class="w-full border-b border-gray-200 py-3 focus:outline-none focus:border-[#C5A059] transition-all bg-transparent text-gray-500">
+                                    <option>Emagrecimento</option>
+                                    <option>Hipertrofia</option>
+                                    <option>Saúde e Longevidade</option>
+                                    <option>Outros</option>
+                                </select>
+                            </div>
+                            <div class="space-y-1 sm:col-span-2">
+                                <label class="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Sua Mensagem</label>
+                                <textarea rows="3" class="w-full border-b border-gray-200 py-3 focus:outline-none focus:border-[#C5A059] transition-all bg-transparent"></textarea>
+                            </div>
+                            <div class="sm:col-span-2 pt-6">
+                                <button type="submit" class="w-full bg-gray-900 text-white py-5 rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:bg-gray-800 transition-all shadow-xl">Solicitar Agendamento</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white py-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 items-start mb-16">
+                <div class="space-y-6">
+                    <div class="text-2xl font-serif font-bold tracking-widest uppercase">
+                        Nutri<span class="text-[#C5A059]">Nome</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
+                        Equilíbrio e ciência para transformar sua alimentação em saúde e longevidade.
+                    </p>
+                </div>
+                <div class="space-y-6">
+                    <h5 class="font-bold text-xs uppercase tracking-widest">Menu Rápido</h5>
+                    <ul class="space-y-4 text-sm text-gray-500">
+                        <li><a href="#inicio" class="hover:text-[#C5A059] transition-colors">Início</a></li>
+                        <li><a href="#sobre" class="hover:text-[#C5A059] transition-colors">Sobre Mim</a></li>
+                        <li><a href="#consultas" class="hover:text-[#C5A059] transition-colors">Consultas</a></li>
+                        <li><a href="#contato" class="hover:text-[#C5A059] transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-6">
+                    <h5 class="font-bold text-xs uppercase tracking-widest">Horário de Atendimento</h5>
+                    <ul class="space-y-2 text-sm text-gray-500">
+                        <li>Segunda - Sexta: 08:00 - 19:00</li>
+                        <li>Sábado: 08:00 - 12:00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-100 pt-8 flex flex-col md:row justify-between items-center gap-4">
+                <p class="text-gray-400 text-[10px] uppercase tracking-widest">© 2024 NutriNome. Design autoral para nutricionistas.</p>
+                <div class="flex gap-6 text-[10px] uppercase tracking-widest text-gray-400">
+                    <a href="#" class="hover:text-gray-900">Termos</a>
+                    <a href="#" class="hover:text-gray-900">Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Mobile
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Scroll Reveal Animation Simple
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.style.padding = window.scrollY > 50 ? '0.5rem 0' : '1rem 0';
+        });
+
+        // Form feedback
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'ENVIANDO...';
+            setTimeout(() => {
+                btn.innerText = 'SOLICITAÇÃO ENVIADA!';
+                btn.classList.add('bg-green-600');
+                e.target.reset();
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
