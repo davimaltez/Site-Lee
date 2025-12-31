@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nutricionista | Leeanne Gonçalves</title>
+    <title>Nutricionista | Lianne Gonçalves</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -13,7 +13,7 @@
             --brand-gold: #C5A059;
             --brand-beige: #F9F7F2;
             --brand-dark: #2C2C2C;
-            --brand-leaf: #5B6D5B; /* Um verde musgo sutil para nutrição */
+            --brand-leaf: #5B6D5B;
         }
 
         body {
@@ -56,7 +56,6 @@
             backdrop-filter: blur(12px);
         }
 
-        /* Estilo para simular o modelo da imagem: Imagem com moldura orgânica */
         .hero-image-container {
             position: relative;
             width: 100%;
@@ -92,9 +91,39 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Botão Flutuante do WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #128c7e;
+        }
     </style>
 </head>
 <body class="antialiased">
+
+    <!-- Botão WhatsApp Flutuante -->
+    <!-- Troque o número 5581999999999 pelo número real da Lianne -->
+    <a href="https://wa.me/5581999999999?text=Olá, Lianne! Vi seu site e gostaria de informações sobre agendamento de consulta." class="whatsapp-float" target="_blank" title="Agende pelo WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Header -->
     <header class="fixed w-full z-50 transition-all duration-300 glass-effect border-b border-gray-100">
@@ -126,11 +155,10 @@
     </header>
 
     <main>
-        <!-- Hero Section (Inspirado fielmente no modelo enviado) -->
+        <!-- Hero Section -->
         <section id="inicio" class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
                 
-                <!-- Lado Esquerdo: Texto (No modelo, a imagem e o texto dividem bem o espaço) -->
                 <div class="space-y-8 z-10 order-2 md:order-1">
                     <div class="space-y-2">
                         <span class="text-[#C5A059] uppercase tracking-[0.5em] text-[10px] font-bold block mb-4">Saúde & Bem-estar</span>
@@ -140,10 +168,10 @@
                         </h1>
                     </div>
                     <p class="text-gray-600 max-w-md leading-relaxed text-lg font-light">
-                        Emagrecimento saudável com acompanhamento nutricional personalizado
+                        Emagrecimento saudável com acompanhamento nutricional personalizado.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <a href="#consultas" class="gold-gradient text-white px-10 py-5 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 uppercase tracking-widest text-[10px] font-bold text-center">
+                        <a href="https://wa.me/5581999999999?text=Olá, Lianne! Gostaria de agendar minha consulta." target="_blank" class="gold-gradient text-white px-10 py-5 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 uppercase tracking-widest text-[10px] font-bold text-center">
                             Agendar minha consulta
                         </a>
                         <a href="#sobre" class="border border-gray-300 text-gray-700 px-10 py-5 rounded-full hover:bg-white transition-all uppercase tracking-widest text-[10px] font-bold text-center">
@@ -152,11 +180,9 @@
                     </div>
                 </div>
 
-                <!-- Lado Direito: Imagem com moldura orgânica (Inspirado no modelo) -->
                 <div class="order-1 md:order-2 flex justify-center md:justify-end">
                     <div class="hero-image-container">
-                        <img src="foto.JPG" alt="Nutricionista Profissional" class="hero-image w-full object-cover aspect-[3/4]">
-                        <!-- Elemento decorativo flutuante -->
+                        <img src="foto.JPG" alt="Lianne Gonçalves - Nutricionista" class="hero-image w-full object-cover aspect-[3/4]">
                         <div class="absolute -bottom-10 -right-10 bg-white p-6 rounded-2xl shadow-2xl z-20 hidden lg:block border border-gray-50">
                             <div class="flex items-center gap-4">
                                 <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center">
@@ -171,12 +197,10 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Background Shape -->
             <div class="absolute top-0 right-0 -mr-32 -mt-32 w-[600px] h-[600px] bg-white rounded-full opacity-50 -z-10"></div>
         </section>
 
-        <!-- Seção de Especialidade (Novo e Criativo para Nutricionista) -->
+        <!-- Especialidades -->
         <section class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -251,7 +275,7 @@
 
                 <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
                     <!-- Presencial -->
-                    <div class="group bg-[#F9F7F2] p-10 rounded-[3rem] transition-all duration-500 hover:bg-white hover:shadow-2xl hover:scale-[1.02] border border-transparent hover:border-gray-100">
+                    <div class="group bg-[#F9F7F2] p-10 rounded-[3rem] transition-all duration-500 hover:bg-white hover:shadow-2xl border border-transparent hover:border-gray-100">
                         <div class="mb-8 flex justify-between items-start">
                             <div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center shadow-sm group-hover:bg-[#C5A059] transition-colors">
                                 <i class="fas fa-stethoscope text-[#C5A059] text-2xl group-hover:text-white"></i>
@@ -260,16 +284,11 @@
                         </div>
                         <h3 class="text-2xl font-serif mb-4">Consulta Presencial</h3>
                         <p class="text-gray-500 text-sm leading-relaxed mb-8">Avaliação física completa com bioimpedância, análise de exames e conversa detalhada em nosso consultório.</p>
-                        <ul class="space-y-4 text-sm text-gray-600 mb-10">
-                            <li class="flex items-center gap-3"><i class="fas fa-check text-[#C5A059]"></i> Bioimpedância inclusa</li>
-                            <li class="flex items-center gap-3"><i class="fas fa-check text-[#C5A059]"></i> Plano alimentar entregue na hora</li>
-                            <li class="flex items-center gap-3"><i class="fas fa-check text-[#C5A059]"></i> Suporte via app</li>
-                        </ul>
-                        <a href="#contato" class="block text-center border-b-2 border-[#C5A059] pb-2 text-[10px] font-bold uppercase tracking-widest hover:text-[#C5A059] transition-colors">Saber mais detalhes</a>
+                        <a href="https://wa.me/5581999999999?text=Olá, Lianne! Gostaria de agendar uma consulta presencial em Recife." target="_blank" class="block text-center gold-gradient text-white py-4 rounded-2xl font-bold uppercase tracking-widest text-[10px] shadow-md hover:shadow-xl transition-all">Agendar Presencial</a>
                     </div>
 
                     <!-- Online -->
-                    <div class="group bg-gray-900 p-10 rounded-[3rem] text-white transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]">
+                    <div class="group bg-gray-900 p-10 rounded-[3rem] text-white transition-all duration-500 hover:shadow-2xl">
                         <div class="mb-8 flex justify-between items-start">
                             <div class="w-16 h-16 bg-gray-800 rounded-2xl flex items-center justify-center shadow-sm group-hover:bg-[#C5A059] transition-colors">
                                 <i class="fas fa-laptop-medical text-[#C5A059] text-2xl group-hover:text-white"></i>
@@ -278,53 +297,43 @@
                         </div>
                         <h3 class="text-2xl font-serif mb-4">Consulta Online</h3>
                         <p class="text-gray-400 text-sm leading-relaxed mb-8">O mesmo cuidado do presencial, no conforto da sua casa. Ideal para quem tem rotina agitada ou mora em outras cidades.</p>
-                        <ul class="space-y-4 text-sm text-gray-400 mb-10">
-                            <li class="flex items-center gap-3"><i class="fas fa-check text-[#C5A059]"></i> Vídeo chamada HD</li>
-                            <li class="flex items-center gap-3"><i class="fas fa-check text-[#C5A059]"></i> Protocolo de fotos/medidas</li>
-                            <li class="flex items-center gap-3"><i class="fas fa-check text-[#C5A059]"></i> Atendimento para todo Brasil</li>
-                        </ul>
-                        <a href="#contato" class="block text-center border-b-2 border-[#C5A059] pb-2 text-[10px] font-bold uppercase tracking-widest text-white hover:text-[#C5A059] transition-colors">Agendar por vídeo</a>
+                        <a href="https://wa.me/5581999999999?text=Olá, Lianne! Gostaria de agendar uma consulta online." target="_blank" class="block text-center bg-white text-gray-900 py-4 rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:bg-[#C5A059] hover:text-white transition-all">Agendar Online</a>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- FAQ Rápido -->
+        <section class="py-20 bg-[#F9F7F2]">
+            <div class="container mx-auto px-6 max-w-3xl text-center">
+                <h2 class="text-3xl font-serif mb-10">Ainda tem dúvidas?</h2>
+                <p class="text-gray-600 mb-8">Estou disponível no WhatsApp para conversarmos e entendermos qual o melhor plano para você.</p>
+                <a href="https://wa.me/5581993142442?text=Oi, Lianne! Tenho uma dúvida sobre as consultas." target="_blank" class="inline-flex items-center gap-3 border-2 border-[#C5A059] text-[#C5A059] px-8 py-4 rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-[#C5A059] hover:text-white transition-all">
+                    Falar com a Nutri <i class="fab fa-whatsapp text-lg"></i>
+                </a>
+            </div>
+        </section>
+
         <!-- Contato -->
-        <section id="contato" class="py-24 bg-[#F9F7F2]">
+        <section id="contato" class="py-24 bg-white">
             <div class="container mx-auto px-6">
-                <div class="bg-white rounded-[4rem] shadow-xl overflow-hidden flex flex-col lg:flex-row">
-                    <!-- Informações -->
+                <div class="bg-gray-900 rounded-[4rem] shadow-xl overflow-hidden flex flex-col lg:flex-row">
                     <div class="lg:w-2/5 gold-gradient p-12 text-white flex flex-col justify-between">
                         <div>
                             <h2 class="text-4xl font-serif mb-6">Dê o primeiro passo hoje.</h2>
                             <p class="text-white/80 font-light mb-12">Agende sua avaliação e comece sua jornada para uma vida mais leve.</p>
-                            
                             <div class="space-y-8">
                                 <div class="flex items-center gap-6">
-                                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                                        <i class="fab fa-whatsapp text-xl"></i>
-                                    </div>
-                                    <p class="font-medium">(11) 99999-9999</p>
+                                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"><i class="fab fa-whatsapp text-xl"></i></div>
+                                    <p class="font-medium">(81) 993142442</p>
                                 </div>
                                 <div class="flex items-center gap-6">
-                                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center">
-                                        <i class="fas fa-map-marker-alt text-xl"></i>
-                                    </div>
+                                    <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center"><i class="fas fa-map-marker-alt text-xl"></i></div>
                                     <p class="font-medium">Boa Viagem, Recife - PE</p>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div class="pt-12">
-                            <p class="text-[10px] uppercase tracking-[0.3em] font-bold mb-4">Siga nas redes</p>
-                            <div class="flex gap-4">
-                                <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-[#C5A059] transition-all"><i class="fab fa-instagram"></i></a>
-                                <a href="#" class="w-10 h-10 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-[#C5A059] transition-all"><i class="fab fa-facebook-f"></i></a>
-                            </div>
-                        </div>
                     </div>
-
-                    <!-- Formulário -->
                     <div class="lg:w-3/5 p-12">
                         <form id="contactForm" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div class="space-y-1">
@@ -335,21 +344,8 @@
                                 <label class="text-[10px] uppercase font-bold text-gray-400 tracking-widest">E-mail</label>
                                 <input type="email" class="w-full border-b border-gray-200 py-3 focus:outline-none focus:border-[#C5A059] transition-all bg-transparent">
                             </div>
-                            <div class="space-y-1 sm:col-span-2">
-                                <label class="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Qual seu principal objetivo?</label>
-                                <select class="w-full border-b border-gray-200 py-3 focus:outline-none focus:border-[#C5A059] transition-all bg-transparent text-gray-500">
-                                    <option>Emagrecimento</option>
-                                    <option>Hipertrofia</option>
-                                    <option>Saúde e Longevidade</option>
-                                    <option>Outros</option>
-                                </select>
-                            </div>
-                            <div class="space-y-1 sm:col-span-2">
-                                <label class="text-[10px] uppercase font-bold text-gray-400 tracking-widest">Sua Mensagem</label>
-                                <textarea rows="3" class="w-full border-b border-gray-200 py-3 focus:outline-none focus:border-[#C5A059] transition-all bg-transparent"></textarea>
-                            </div>
                             <div class="sm:col-span-2 pt-6">
-                                <button type="submit" class="w-full bg-gray-900 text-white py-5 rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:bg-gray-800 transition-all shadow-xl">Solicitar Agendamento</button>
+                                <button type="submit" class="w-full bg-gray-900 text-white py-5 rounded-2xl font-bold uppercase tracking-widest text-[10px] hover:bg-gray-800 transition-all shadow-xl">Solicitar Contato</button>
                             </div>
                         </form>
                     </div>
@@ -358,82 +354,43 @@
         </section>
     </main>
 
-    <footer class="bg-white py-16">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-3 gap-12 items-start mb-16">
-                <div class="space-y-6">
-                    <div class="text-2xl font-serif font-bold tracking-widest uppercase">
-                        Lianne<span class="text-[#C5A059]">Gonçalves</span>
-                    </div>
-                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">
-                        Equilíbrio e ciência para transformar sua alimentação em saúde e longevidade.
-                    </p>
-                </div>
-                <div class="space-y-6">
-                    <h5 class="font-bold text-xs uppercase tracking-widest">Menu Rápido</h5>
-                    <ul class="space-y-4 text-sm text-gray-500">
-                        <li><a href="#inicio" class="hover:text-[#C5A059] transition-colors">Início</a></li>
-                        <li><a href="#sobre" class="hover:text-[#C5A059] transition-colors">Sobre Mim</a></li>
-                        <li><a href="#consultas" class="hover:text-[#C5A059] transition-colors">Consultas</a></li>
-                        <li><a href="#contato" class="hover:text-[#C5A059] transition-colors">Contato</a></li>
-                    </ul>
-                </div>
-                <div class="space-y-6">
-                    <h5 class="font-bold text-xs uppercase tracking-widest">Horário de Atendimento</h5>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li>Segunda - Sexta: 08:00 - 19:00</li>
-                        <li>Sábado: 08:00 - 12:00</li>
-                    </ul>
-                </div>
+    <footer class="bg-white py-16 border-t border-gray-50">
+        <div class="container mx-auto px-6 text-center">
+            <div class="text-2xl font-serif font-bold tracking-widest uppercase mb-6">
+                Lianne<span class="text-[#C5A059]">Gonçalves</span>
             </div>
-            <div class="border-t border-gray-100 pt-8 flex flex-col md:row justify-between items-center gap-4">
-                <p class="text-gray-400 text-[10px] uppercase tracking-widest">© 2026 LianneGonçalves. Design autoral.</p>
-                <div class="flex gap-6 text-[10px] uppercase tracking-widest text-gray-400">
-                    <a href="#" class="hover:text-gray-900">Termos</a>
-                    <a href="#" class="hover:text-gray-900">Privacidade</a>
-                </div>
-            </div>
+            <p class="text-gray-400 text-[10px] uppercase tracking-widest">© 2026 Lianne Gonçalves. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Menu Mobile
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-        // Scroll Reveal Animation Simple
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
-                if (elementTop < windowHeight - elementVisible) {
+                if (elementTop < windowHeight - 150) {
                     reveals[i].classList.add("active");
                 }
             }
         }
         window.addEventListener("scroll", reveal);
-        reveal(); // Trigger on load
-
-        // Header Scroll Effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            header.style.padding = window.scrollY > 50 ? '0.5rem 0' : '1rem 0';
-        });
+        reveal();
 
         // Form feedback
         document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const btn = e.target.querySelector('button');
-            const originalText = btn.innerText;
             btn.innerText = 'ENVIANDO...';
             setTimeout(() => {
-                btn.innerText = 'SOLICITAÇÃO ENVIADA!';
+                btn.innerText = 'SOLICITAÇÃO RECEBIDA!';
                 btn.classList.add('bg-green-600');
                 e.target.reset();
-            }, 1500);
+            }, 1200);
         });
     </script>
 </body>
