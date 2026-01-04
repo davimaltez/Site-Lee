@@ -13,7 +13,6 @@
             --brand-gold: #C5A059;
             --brand-beige: #F9F7F2;
             --brand-dark: #2C2C2C;
-            --brand-leaf: #5B6D5B;
         }
 
         body {
@@ -52,33 +51,45 @@
         }
 
         .glass-effect {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
         }
 
-        .hero-image-container {
+        /* Nova Moldura da Foto Principal */
+        .hero-frame {
             position: relative;
-            width: 100%;
-            max-width: 500px;
+            padding: 15px;
         }
 
-        .hero-image-container::before {
+        .hero-frame::before {
             content: '';
             position: absolute;
-            top: 20px;
-            left: -20px;
-            width: 100%;
-            height: 100%;
-            border: 2px solid var(--brand-gold);
-            border-radius: 150px 150px 0 0;
-            z-index: 1;
+            top: 0;
+            right: 0;
+            width: 80%;
+            height: 80%;
+            border-top: 3px solid var(--brand-gold);
+            border-right: 3px solid var(--brand-gold);
+            z-index: 0;
         }
 
-        .hero-image {
-            border-radius: 150px 150px 0 0;
+        .hero-frame::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40%;
+            height: 40%;
+            border-bottom: 3px solid var(--brand-gold);
+            border-left: 3px solid var(--brand-gold);
+            z-index: 0;
+        }
+
+        .hero-img-new {
             position: relative;
-            z-index: 2;
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+            z-index: 1;
+            border-radius: 4px;
+            box-shadow: 15px 15px 40px rgba(0,0,0,0.1);
         }
 
         .reveal {
@@ -112,42 +123,43 @@
         }
         .whatsapp-float:hover {
             transform: scale(1.1);
-            background-color: #128c7e;
         }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Botão WhatsApp Flutuante -->
-    <a href="https://wa.me/5581993142442?text=Olá, Lianne! Vi seu site e gostaria de informações sobre agendamento de consulta." class="whatsapp-float" target="_blank" title="Agende pelo WhatsApp">
+    <!-- WhatsApp Flutuante -->
+    <a href="https://wa.me/5521984548644?text=Olá, Lianne! Gostaria de informações sobre agendamento de consulta." class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <!-- Header -->
-    <header class="fixed w-full z-50 transition-all duration-300 glass-effect border-b border-gray-100">
+    <header class="fixed w-full z-50 glass-effect border-b border-gray-100">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-serif font-bold tracking-widest text-gray-800 uppercase">
+            <div class="text-xl md:text-2xl font-serif font-bold tracking-widest text-gray-800 uppercase">
                 Lianne<span class="text-[#C5A059]">Gonçalves</span>
             </div>
             
-            <button id="menu-btn" class="md:hidden text-gray-800 focus:outline-none">
+            <button id="menu-btn" class="md:hidden text-gray-800">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
 
             <ul class="hidden md:flex space-x-10 font-medium uppercase text-[10px] tracking-[0.2em]">
                 <li><a href="#inicio" class="nav-link">Início</a></li>
                 <li><a href="#sobre" class="nav-link">Sobre Mim</a></li>
-                <li><a href="#consultas" class="nav-link">Consultas</a></li>
-                <li><a href="#contato" class="nav-link">Fale Conosco</a></li>
+                <li><a href="#metodo" class="nav-link">Abordagem</a></li>
+                <li><a href="#atendimento" class="nav-link">Atendimento</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
             </ul>
         </nav>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white w-full absolute top-full left-0 border-b border-gray-200 shadow-xl">
-            <ul class="flex flex-col p-8 space-y-6 font-medium uppercase text-xs tracking-widest text-center">
-                <li><a href="#inicio" class="block py-2">Início</a></li>
-                <li><a href="#sobre" class="block py-2">Sobre Mim</a></li>
-                <li><a href="#consultas" class="block py-2">Consultas</a></li>
-                <li><a href="#contato" class="block py-2">Fale Conosco</a></li>
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full absolute top-full left-0 shadow-xl p-8 border-b border-gray-100">
+            <ul class="flex flex-col space-y-6 font-medium uppercase text-xs tracking-widest text-center">
+                <li><a href="#inicio" class="block">Início</a></li>
+                <li><a href="#sobre" class="block">Sobre Mim</a></li>
+                <li><a href="#metodo" class="block">Abordagem</a></li>
+                <li><a href="#atendimento" class="block">Atendimento</a></li>
+                <li><a href="#contato" class="block">Contato</a></li>
             </ul>
         </div>
     </header>
@@ -155,48 +167,34 @@
     <main>
         <!-- Hero Section -->
         <section id="inicio" class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
-            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
                 <div class="space-y-8 z-10 order-2 md:order-1">
                     <div class="space-y-2">
-                        <span class="text-[#C5A059] uppercase tracking-[0.5em] text-[10px] font-bold block mb-4">Saúde & Bem-estar</span>
+                        <span class="text-[#C5A059] uppercase tracking-[0.4em] text-[10px] font-bold block mb-4">Nutrição Clínica</span>
                         <h1 class="text-5xl md:text-7xl leading-[1.1] text-gray-900 font-serif">
                             Alimente sua <br>
-                            <span class="italic font-normal text-gray-500">melhor versão.</span>
+                            <span class="italic font-normal text-gray-500">melhor versão</span>
                         </h1>
                     </div>
                     <p class="text-gray-600 max-w-md leading-relaxed text-lg font-light">
-                        Emagrecimento saudável com acompanhamento nutricional personalizado.
+                        Emagrecimento saudável com acompanhamento nutricional personalizado e personalizado para a sua rotina.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                        <a href="https://wa.me/5581993142442?text=Olá, Lianne! Gostaria de agendar minha consulta." target="_blank" class="gold-gradient text-white px-10 py-5 rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 uppercase tracking-widest text-[10px] font-bold text-center">
+                    <div class="pt-4">
+                        <a href="https://wa.me/5521984548644?text=Olá, Lianne! Gostaria de agendar minha consulta." target="_blank" class="gold-gradient text-white px-10 py-5 rounded-full shadow-lg hover:shadow-2xl transition-all inline-block uppercase tracking-widest text-[10px] font-bold">
                             Agendar minha consulta
-                        </a>
-                        <a href="#sobre" class="border border-gray-300 text-gray-700 px-10 py-5 rounded-full hover:bg-white transition-all uppercase tracking-widest text-[10px] font-bold text-center">
-                            Conhecer abordagem
                         </a>
                     </div>
                 </div>
 
                 <div class="order-1 md:order-2 flex justify-center md:justify-end">
-                    <div class="hero-image-container">
-                        <img src="foto.JPG" alt="Lianne Gonçalves - Nutricionista" class="hero-image w-full object-cover aspect-[3/4]">
-                        <div class="absolute -bottom-10 -right-10 bg-white p-6 rounded-2xl shadow-2xl z-20 hidden lg:block border border-gray-50">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-apple-alt text-[#C5A059]"></i>
-                                </div>
-                                <div>
-                                    <p class="text-[10px] text-gray-400 uppercase tracking-widest">Especialidade</p>
-                                    <p class="text-sm font-bold text-gray-800 font-serif">Emagrecimento</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="hero-frame max-w-[420px]">
+                        <img src="foto.JPG" alt="Lianne Gonçalves" class="hero-img-new w-full object-cover aspect-[3/4]">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Especialidades -->
+        <!-- Especialidades (Reintegrada) -->
         <section class="py-20 bg-white">
             <div class="container mx-auto px-6">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -224,88 +222,163 @@
             </div>
         </section>
 
-        <!-- Sobre Mim -->
+        <!-- Sobre Mim (Reintegrada) -->
         <section id="sobre" class="py-24 bg-[#F9F7F2]">
             <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
-                <div class="md:w-1/2 relative">
-                    <img src="IMG_7216.JPG" alt="Nutricionista em Atendimento" class="rounded-[2rem] shadow-2xl">
-                    <div class="absolute -top-6 -left-6 bg-[#C5A059] w-24 h-24 rounded-full flex items-center justify-center text-white text-xs text-center font-bold p-2 transform -rotate-12 border-4 border-white">
-                        CRN ATIVO
+                <div class="md:w-1/2 relative reveal">
+                    <img src="IMG_7216.JPG" alt="Nutricionista em Atendimento" class="rounded-[2rem] shadow-2xl w-full object-cover">
+                    <div class="absolute -top-6 -left-6 bg-[#C5A059] w-24 h-24 rounded-full flex items-center justify-center text-white text-[10px] text-center font-bold p-2 transform -rotate-12 border-4 border-white shadow-lg">
+                        CRN Ativo
                     </div>
                 </div>
-                <div class="md:w-1/2 space-y-8">
+                <div class="md:w-1/2 space-y-8 reveal">
                     <div class="space-y-4">
-                        <h2 class="text-4xl md:text-5xl text-gray-900 font-serif leading-tight">Ciência e acolhimento em cada etapa.</h2>
+                        <span class="text-[#C5A059] uppercase tracking-[0.3em] text-[10px] font-bold">Quem sou</span>
+                        <h2 class="text-4xl md:text-5xl text-gray-900 font-serif leading-tight">Ciência e acolhimento em cada etapa</h2>
                         <div class="w-16 h-[2px] bg-[#C5A059]"></div>
                     </div>
-                    <p class="text-gray-600 leading-relaxed">
-                        Sou apaixonada por desmistificar a nutrição. Meu trabalho consiste em entender a sua rotina, seus gostos e seus desafios para criar um plano que realmente faça sentido para a sua vida.
+                    <p class="text-gray-600 leading-relaxed font-light text-lg">
+                        Sou nutricionista com atuação focada em emagrecimento saudável. Acredito que resultados duradouros são construídos com ciência, escuta e respeito à individualidade.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed font-light">
+                        Meu trabalho consiste em compreender sua rotina, suas preferências alimentares e seus desafios para desenvolver um plano nutricional realista, sustentável e alinhado à sua vida.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Seção Unificada: Contato e Dúvidas -->
-        <section id="contato" class="py-24 bg-white">
+        <!-- Seção ABORDAGEM / MÉTODO -->
+        <section id="metodo" class="py-24 bg-white">
             <div class="container mx-auto px-6">
-                <div class="bg-gray-900 rounded-[4rem] shadow-xl overflow-hidden flex flex-col lg:flex-row">
-                    <!-- Lado Esquerdo: Info e Call to Action -->
-                    <div class="lg:w-2/5 gold-gradient p-12 text-white flex flex-col justify-between">
-                        <div>
-                            <h2 class="text-4xl font-serif mb-6">Dê o primeiro passo ou tire sua dúvida.</h2>
-                            <p class="text-white/80 font-light mb-12">Não importa se você quer começar agora ou apenas entender como funciona, estou à disposição no WhatsApp.</p>
-                            
-                            <div class="space-y-6">
-                                <a href="https://wa.me/5581993142442?text=Oi, Lianne! Gostaria de tirar uma dúvida sobre as consultas." target="_blank" class="flex items-center gap-6 group">
-                                    <div class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/40 transition-all"><i class="fab fa-whatsapp text-2xl"></i></div>
-                                    <div>
-                                        <p class="text-[10px] uppercase tracking-widest opacity-70">Conversar agora</p>
-                                        <p class="font-medium text-lg">(81) 99314-2442</p>
-                                    </div>
-                                </a>
-                                <div class="flex items-center gap-6">
-                                    <div class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center"><i class="fas fa-map-marker-alt text-xl"></i></div>
-                                    <div>
-                                        <p class="text-[10px] uppercase tracking-widest opacity-70">Localização</p>
-                                        <p class="font-medium text-lg">Boa Viagem, Recife - PE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16 reveal">
+                        <span class="text-[#C5A059] uppercase tracking-[0.3em] text-[10px] font-bold">Abordagem / Método</span>
+                        <h2 class="text-4xl md:text-5xl font-serif mt-4">Uma abordagem individual e possível</h2>
+                        <div class="w-16 h-[2px] bg-[#C5A059] mx-auto mt-6"></div>
+                        <p class="text-gray-600 mt-8 text-lg leading-relaxed font-light">
+                            Cada acompanhamento é pensado de forma única. O objetivo não é impor dietas restritivas, mas construir estratégias que promovam saúde, autonomia e constância ao longo do processo de emagrecimento.
+                        </p>
                     </div>
 
-                    <!-- Lado Direito: Opções Rápidas -->
-                    <div class="lg:w-3/5 p-12 flex flex-col justify-center bg-gray-50">
-                        <div class="max-w-md mx-auto w-full text-center lg:text-left">
-                            <h3 class="text-2xl font-serif mb-6 text-gray-800">Como prefere falar comigo?</h3>
-                            <div class="grid gap-4">
-                                <a href="https://wa.me/5581993142442?text=Oi, Lianne! Tenho algumas dúvidas antes de agendar." target="_blank" class="flex items-center justify-between p-6 bg-white border border-gray-100 rounded-2xl hover:shadow-lg transition-all group">
-                                    <span class="font-medium text-gray-700">Tirar dúvidas rápidas</span>
-                                    <i class="fas fa-chevron-right text-[#C5A059] group-hover:translate-x-1 transition-transform"></i>
-                                </a>
-                                <a href="https://wa.me/5581993142442?text=Olá! Gostaria de saber os valores e horários para agendamento." target="_blank" class="flex items-center justify-between p-6 bg-white border border-gray-100 rounded-2xl hover:shadow-lg transition-all group">
-                                    <span class="font-medium text-gray-700">Agendamentos e Valores</span>
-                                    <i class="fas fa-chevron-right text-[#C5A059] group-hover:translate-x-1 transition-transform"></i>
-                                </a>
-                                <a href="https://wa.me/5581993142442?text=Oi, Lianne! Gostaria de informações sobre a consulta online." target="_blank" class="flex items-center justify-between p-6 bg-white border border-gray-100 rounded-2xl hover:shadow-lg transition-all group">
-                                    <span class="font-medium text-gray-700">Consulta Online / Outras Cidades</span>
-                                    <i class="fas fa-chevron-right text-[#C5A059] group-hover:translate-x-1 transition-transform"></i>
-                                </a>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-[#F9F7F2] p-8 rounded-2xl reveal shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm">
+                                <i class="fas fa-clipboard-list text-[#C5A059]"></i>
                             </div>
-                            <p class="mt-8 text-xs text-gray-400 uppercase tracking-widest">Resposta média em menos de 1 hora</p>
+                            <h3 class="font-serif text-xl mb-3">Avaliação completa</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">Histórico clínico, análise alimentar detalhada e estudo da sua rotina atual.</p>
+                        </div>
+                        <div class="bg-[#F9F7F2] p-8 rounded-2xl reveal shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm">
+                                <i class="fas fa-utensils text-[#C5A059]"></i>
+                            </div>
+                            <h3 class="font-serif text-xl mb-3">Plano personalizado</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">Flexível, totalmente adaptado ao seu dia a dia e às suas preferências.</p>
+                        </div>
+                        <div class="bg-[#F9F7F2] p-8 rounded-2xl reveal shadow-sm hover:shadow-md transition-shadow">
+                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center mb-6 shadow-sm">
+                                <i class="fas fa-sync-alt text-[#C5A059]"></i>
+                            </div>
+                            <h3 class="font-serif text-xl mb-3">Acompanhamento</h3>
+                            <p class="text-gray-500 text-sm leading-relaxed">Ajustes periódicos e suporte profissional durante todo o processo.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Seção ATENDIMENTOS -->
+        <section id="atendimento" class="py-24 bg-[#F9F7F2]">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto text-center mb-16 reveal">
+                    <span class="text-[#C5A059] uppercase tracking-[0.3em] text-[10px] font-bold">Atendimentos</span>
+                    <h2 class="text-3xl md:text-4xl font-serif mt-4">Atendimento nutricional online e presencial</h2>
+                    <p class="text-gray-500 mt-6 font-light">Os atendimentos são realizados de forma online e presencial, respeitando a necessidade e a rotina de cada paciente.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                    <!-- Online -->
+                    <div class="bg-white p-10 rounded-[2.5rem] shadow-xl reveal group">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center group-hover:bg-[#C5A059] transition-colors">
+                                <i class="fas fa-laptop-medical text-2xl text-[#C5A059] group-hover:text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-serif">Online</h3>
+                        </div>
+                        <p class="text-gray-500 leading-relaxed mb-8">
+                            Atendimento por videochamada, com acompanhamento completo e personalizado, possibilitando o cuidado nutricional de qualquer lugar.
+                        </p>
+                        <a href="https://wa.me/5521984548644?text=Olá, Lianne! Tenho interesse no atendimento Online." target="_blank" class="inline-block text-[#C5A059] font-bold uppercase tracking-widest text-[10px] border-b-2 border-[#C5A059] pb-1 hover:text-gray-900 transition-all">Saber mais</a>
+                    </div>
+
+                    <!-- Presencial -->
+                    <div class="bg-gray-900 p-10 rounded-[2.5rem] shadow-xl text-white reveal group">
+                        <div class="flex items-center gap-4 mb-8">
+                            <div class="w-14 h-14 bg-gray-800 rounded-2xl flex items-center justify-center group-hover:bg-[#C5A059] transition-colors">
+                                <i class="fas fa-map-marker-alt text-2xl text-[#C5A059] group-hover:text-white"></i>
+                            </div>
+                            <h3 class="text-2xl font-serif">Presencial</h3>
+                        </div>
+                        <p class="text-gray-400 leading-relaxed mb-8">
+                            Consultas realizadas em consultório, com avaliação detalhada e acompanhamento individualizado.
+                        </p>
+                        <a href="https://wa.me/5521984548644?text=Olá, Lianne! Tenho interesse no atendimento Presencial em Recife." target="_blank" class="inline-block text-[#C5A059] font-bold uppercase tracking-widest text-[10px] border-b-2 border-[#C5A059] pb-1 hover:text-white transition-all">Ver localização</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção AGENDAMENTO -->
+        <section id="agendar" class="py-24 bg-white">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h2 class="text-4xl font-serif mb-6">Agende sua consulta</h2>
+                <p class="text-gray-600 max-w-xl mx-auto mb-10 font-light">
+                    Dê o primeiro passo para um emagrecimento saudável com acompanhamento nutricional profissional e individualizado.
+                </p>
+                <a href="https://wa.me/5521984548644?text=Olá, Lianne! Gostaria de agendar minha consulta." target="_blank" class="gold-gradient text-white px-12 py-5 rounded-full shadow-lg hover:shadow-2xl transition-all inline-block uppercase tracking-widest text-[10px] font-bold">
+                    Agendar consulta
+                </a>
+            </div>
+        </section>
+
+        <!-- Seção FALE CONOSCO -->
+        <section id="contato" class="py-24 bg-gray-900 text-white">
+            <div class="container mx-auto px-6 text-center reveal">
+                <span class="text-[#C5A059] uppercase tracking-[0.3em] text-[10px] font-bold">Fale Conosco / Contato</span>
+                <p class="text-gray-400 mt-8 mb-10 max-w-md mx-auto">Para mais informações sobre atendimentos, valores e horários, entre em contato.</p>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                    <a href="https://wa.me/5521984548644" target="_blank" class="flex items-center gap-4 bg-white/10 px-8 py-4 rounded-2xl hover:bg-[#25d366] hover:text-white transition-all border border-white/5">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                        <span class="font-medium">(21) 98454-8644</span>
+                    </a>
+                    <a href="https://instagram.com/liannegoncalves.nutri" target="_blank" class="flex items-center gap-4 bg-white/10 px-8 py-4 rounded-2xl hover:bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 transition-all border border-white/5">
+                        <i class="fab fa-instagram text-2xl"></i>
+                        <span class="font-medium">@liannegoncalves.nutri</span>
+                    </a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="bg-white py-16 border-t border-gray-50">
-        <div class="container mx-auto px-6 text-center">
-            <div class="text-2xl font-serif font-bold tracking-widest uppercase mb-6">
-                Lianne<span class="text-[#C5A059]">Gonçalves</span>
+    <!-- Rodapé -->
+    <footer class="bg-white py-12 border-t border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-8">
+                <div>
+                    <div class="text-xl font-serif font-bold tracking-widest uppercase mb-1">
+                        Lianne<span class="text-[#C5A059]">Gonçalves</span>
+                    </div>
+                    <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Nutricionista • CRN 49289</p>
+                </div>
+                
+                <div class="text-[10px] text-gray-400 uppercase tracking-widest leading-loose">
+                    Atendimento nutricional em emagrecimento saudável<br>
+                    💻 Online | 📍 Presencial em Boa Viagem, Recife – PE
+                </div>
+                
+                <p class="text-gray-400 text-[9px] uppercase tracking-[0.2em]">© 2026 Lianne Gonçalves. Todos os direitos reservados.</p>
             </div>
-            <p class="text-gray-400 text-[10px] uppercase tracking-widest">© 2026 Lianne Gonçalves. Todos os direitos reservados.</p>
         </div>
     </footer>
 
@@ -314,12 +387,16 @@
         const mobileMenu = document.getElementById('mobile-menu');
         menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 150) {
+                if (elementTop < windowHeight - 100) {
                     reveals[i].classList.add("active");
                 }
             }
